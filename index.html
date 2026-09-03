@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FakerX Automation</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #0f172a;
+            color: #e2e8f0;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .logo {
+            font-size: 42px;
+            font-weight: 800;
+            color: white;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #38bdf8;
+        }
+
+        .tagline {
+            margin-top: 12px;
+            color: #94a3b8;
+            font-size: 17px;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .hero h1 {
+            font-size: 46px;
+            line-height: 1.2;
+            color: white;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 span {
+            color: #38bdf8;
+        }
+
+        .hero p {
+            max-width: 750px;
+            margin: auto;
+            color: #94a3b8;
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        /* ================= MAIN GRID ================= */
+
+        .content {
+            display: grid;
+            grid-template-columns: 1.3fr 0.9fr;
+            gap: 30px;
+            align-items: start;
+        }
+
+        .card {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 18px;
+            padding: 35px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about h2,
+        .register h2 {
+            color: white;
+            font-size: 25px;
+            margin-bottom: 18px;
+        }
+
+        .about h2::after,
+        .register h2::after {
+            content: "";
+            display: block;
+            width: 45px;
+            height: 3px;
+            background: #38bdf8;
+            margin-top: 9px;
+            border-radius: 5px;
+        }
+
+        .about p {
+            color: #cbd5e1;
+            line-height: 1.8;
+            margin-bottom: 18px;
+        }
+
+        .highlight {
+            color: #38bdf8;
+            font-weight: bold;
+        }
+
+        /* ================= SKILLS ================= */
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 25px 0;
+        }
+
+        .skill {
+            background: #0f172a;
+            border: 1px solid #334155;
+            padding: 9px 14px;
+            border-radius: 20px;
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        .skill:hover {
+            border-color: #38bdf8;
+            color: #38bdf8;
+        }
+
+        /* ================= PROJECT INFO ================= */
+
+        .project-box {
+            margin-top: 25px;
+            padding: 20px;
+            background: #0f172a;
+            border-left: 4px solid #38bdf8;
+            border-radius: 8px;
+        }
+
+        .project-box h3 {
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .project-box p {
+            margin: 0;
+            font-size: 15px;
+        }
+
+        /* ================= REGISTER ================= */
+
+        .register {
+            position: sticky;
+            top: 25px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            color: #cbd5e1;
+            margin-bottom: 7px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px 14px;
+            margin-bottom: 18px;
+            background: #0f172a;
+            border: 1px solid #475569;
+            border-radius: 8px;
+            color: white;
+            font-size: 15px;
+            transition: 0.2s;
+        }
+
+        input::placeholder {
+            color: #64748b;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #38bdf8;
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.1);
+        }
+
+        button {
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: #38bdf8;
+            color: #082f49;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: #7dd3fc;
+            transform: translateY(-1px);
+        }
+
+        /* ================= LOGIN ================= */
+
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .login-link a {
+            color: #38bdf8;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* ================= ERROR ================= */
+
+        .error {
+            background: rgba(239, 68, 68, 0.12);
+            border: 1px solid rgba(239, 68, 68, 0.35);
+            color: #fca5a5;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 18px;
+            font-size: 14px;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            text-align: center;
+            margin-top: 55px;
+            padding-top: 25px;
+            border-top: 1px solid #334155;
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 850px) {
+
+            .content {
+                grid-template-columns: 1fr;
+            }
+
+            .register {
+                position: static;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            body {
+                padding: 25px 15px;
+            }
+
+            .card {
+                padding: 25px;
+            }
+
+            .logo {
+                font-size: 32px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <div class="logo">
+            Faker<span>X</span> Automation
+        </div>
+
+        <p class="tagline">
+            Python • Flask • Selenium • Automation
+        </p>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <h1>
+            Automate the Web with
+            <span>Python</span>
+        </h1>
+
+        <p>
+            Welcome to FakerX Automation — a Flask-based web application
+            created as a practical Python automation project. The system
+            combines web development, database authentication and Selenium
+            browser automation into one complete application.
+        </p>
+
+    </section>
+
+
+    <!-- ================= CONTENT ================= -->
+
+    <div class="content">
+
+
+        <!-- ================= ABOUT ME ================= -->
+
+        <section class="card about">
+
+            <h2>About Mr Faker</h2>
+
+            <p>
+                I am <span class="highlight">Mr Faker</span>, a Python
+                developer focused on automation, web development and
+                cybersecurity.
+            </p>
+
+            <p>
+                My main goal is to learn by building real projects rather
+                than only studying theory. I use Python to create practical
+                automation systems and experiment with technologies that
+                can solve real-world problems.
+            </p>
+
+            <p>
+                During my learning journey, I have worked with Python
+                automation, web scraping, APIs, browser automation and
+                Flask web applications. This project is one of my practical
+                projects where I brought several of these skills together.
+            </p>
+
+
+            <!-- SKILLS -->
+
+            <div class="skills">
+
+                <span class="skill">Python</span>
+                <span class="skill">Flask</span>
+                <span class="skill">Selenium</span>
+                <span class="skill">BeautifulSoup</span>
+                <span class="skill">Requests</span>
+                <span class="skill">SQLAlchemy</span>
+                <span class="skill">SQLite</span>
+                <span class="skill">HTML</span>
+                <span class="skill">CSS</span>
+                <span class="skill">Cybersecurity</span>
+
+            </div>
+
+
+            <!-- PROJECT -->
+
+            <div class="project-box">
+
+                <h3>About FakerX Automation</h3>
+
+                <p>
+                    FakerX Automation demonstrates how Flask can be used
+                    as the web interface for a Python Selenium automation
+                    system.
+                </p>
+
+            </div>
+
+
+            <p style="margin-top: 25px;">
+                After creating an account, you can access the private
+                automation dashboard and run the available Selenium
+                automation.
+            </p>
+
+        </section>
+
+
+        <!-- ================= REGISTER ================= -->
+
+        <section class="card register">
+
+            <h2>Create Your Account</h2>
+
+
+            <!-- JINJA ERROR HANDLING -->
+
+            {% with messages = get_flashed_messages() %}
+
+                {% if messages %}
+
+                    {% for message in messages %}
+
+                        <div class="error">
+                            {{ message }}
+                        </div>
+
+                    {% endfor %}
+
+                {% endif %}
+
+            {% endwith %}
+
+
+            <form method="POST" action="{{ url_for('main.register') }}">
+
+                <label for="name">
+                    Name
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your name"
+                    required
+                >
+
+
+                <label for="email">
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+
+                <label for="password">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Create a password"
+                    required
+                >
+
+
+                <button type="submit">
+                    Create Account
+                </button>
+
+            </form>
+
+
+            <p class="login-link">
+
+                Already have an account?
+
+                <a href="{{ url_for('main.login') }}">
+                    Login
+                </a>
+
+            </p>
+
+        </section>
+
+    </div>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        FakerX Automation · Built with Python & Flask
+
+    </footer>
+
+</div>
+
+</body>
+</html>
