@@ -37,7 +37,6 @@ def run_automation():
     POSTAL_CODE = "House1234"
     PHONE = "03299302724"
     CITY = "mardan"
-   
 
     # ============================================================
     # DRIVER SETUP
@@ -51,8 +50,6 @@ def run_automation():
     try:
 
         wait = WebDriverWait(driver, WAIT_TIME)
-
-    
 
         # ========================================================
         # 1. OPEN WEBSITE
@@ -513,62 +510,53 @@ def run_automation():
 
         print("[OK] City entered")
 
+        # ========================================================
+        # PAYMENT TEST DATA
+        # ========================================================
 
-        #FINDING THE CREDIT OPTIONS
-        print("Filing card number")
+        print("\n[PAYMENT] Filling test card information...")
 
         card_number = wait.until(
             EC.visibility_of_element_located(
-                (By.ID , "number")
+                (By.ID, "number")
             )
         )
 
         card_number.send_keys("4242 4242 4242 4242")
 
-        print("card_number entered" )
-
-
-        #Entering exspiration date
+        print("[OK] Card number entered")
 
         expire = wait.until(
             EC.visibility_of_element_located(
-                (By.ID , "expiry")
+                (By.ID, "expiry")
             )
         )
+
         time.sleep(2)
 
         expire.send_keys("01/2030")
 
-        print("Expiring date entered")
+        print("[OK] Expiration date entered")
 
-
-        #Entering seacuirity code
-
-        secuirity_code = wait.until(
+        security_code = wait.until(
             EC.visibility_of_element_located(
-                (By.ID , "verification_value")
+                (By.ID, "verification_value")
             )
         )
 
-        secuirity_code.send_keys("333")
+        security_code.send_keys("333")
 
-        print("Secuirity code entered")
+        print("[OK] Security code entered")
 
-
-        #Nome on card
-        
         name_on_card = wait.until(
-        EC.visibility_of_element_located(
-            (By.ID , "name")
+            EC.visibility_of_element_located(
+                (By.ID, "name")
             )
         )
-        
+
         name_on_card.send_keys("FakerX Test")
-        
-        print("Name on card entered")
-        
 
-
+        print("[OK] Name on card entered")
 
         # ========================================================
         # 25. PAY NOW BUTTON
@@ -651,7 +639,7 @@ def run_automation():
     # ERROR HANDLING
     # ============================================================
 
-    except TimeoutException as e:
+    except TimeoutException:
 
         print("\n" + "=" * 70)
         print("ERROR TYPE: TIMEOUT")
@@ -672,7 +660,7 @@ def run_automation():
             "error": "TimeoutException"
         }
 
-    except NoSuchElementException as e:
+    except NoSuchElementException:
 
         print("\n" + "=" * 70)
         print("ERROR TYPE: NO SUCH ELEMENT")
@@ -692,7 +680,7 @@ def run_automation():
             "error": "NoSuchElementException"
         }
 
-    except ElementClickInterceptedException as e:
+    except ElementClickInterceptedException:
 
         print("\n" + "=" * 70)
         print("ERROR TYPE: CLICK INTERCEPTED")
@@ -716,7 +704,7 @@ def run_automation():
             "error": "ElementClickInterceptedException"
         }
 
-    except StaleElementReferenceException as e:
+    except StaleElementReferenceException:
 
         print("\n" + "=" * 70)
         print("ERROR TYPE: STALE ELEMENT")
@@ -770,4 +758,3 @@ def run_automation():
 
         print("\n=== FAKERX SELENIUM PROJECT END ===")
         driver.quit()
-
