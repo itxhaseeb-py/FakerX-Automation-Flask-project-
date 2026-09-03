@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FakerX Automation - Dashboard</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: #e5e7eb;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            background: #111827;
+            border-bottom: 1px solid #1f2937;
+
+            padding: 18px 40px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            color: white;
+            font-size: 25px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .dashboard-badge {
+            background: #1e293b;
+            border: 1px solid #334155;
+
+            color: #38bdf8;
+
+            padding: 6px 12px;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+        }
+
+        .logout {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .logout:hover {
+            color: #38bdf8;
+        }
+
+
+        /* =========================
+           MAIN CONTAINER
+        ========================= */
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+
+            margin: 40px auto;
+
+            padding: 0 20px;
+        }
+
+
+        /* =========================
+           WELCOME
+        ========================= */
+
+        .welcome {
+            background: #111827;
+
+            border: 1px solid #1f2937;
+
+            border-radius: 14px;
+
+            padding: 30px;
+
+            margin-bottom: 25px;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .welcome h2 {
+            color: white;
+            font-size: 28px;
+
+            margin-bottom: 10px;
+        }
+
+        .welcome p {
+            color: #94a3b8;
+        }
+
+
+        /* =========================
+           AUTOMATION CARD
+        ========================= */
+
+        .automation {
+            background: #111827;
+
+            border: 1px solid #1f2937;
+
+            border-radius: 14px;
+
+            padding: 30px;
+
+            margin-bottom: 25px;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .automation h2 {
+            color: white;
+
+            font-size: 24px;
+
+            margin-bottom: 10px;
+        }
+
+        .automation > p {
+            color: #94a3b8;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* =========================
+           WORKFLOW
+        ========================= */
+
+        .workflow {
+            background: #0f172a;
+
+            border: 1px solid #1f2937;
+
+            border-radius: 10px;
+
+            padding: 22px;
+
+            margin-bottom: 25px;
+        }
+
+        .workflow h3 {
+            color: white;
+
+            font-size: 18px;
+
+            margin-bottom: 15px;
+        }
+
+        .workflow ol {
+            padding-left: 25px;
+
+            color: #cbd5e1;
+        }
+
+        .workflow li {
+            margin-bottom: 8px;
+        }
+
+
+        /* =========================
+           STATUS
+        ========================= */
+
+        .status {
+            background: #172033;
+
+            border: 1px solid #334155;
+
+            border-left: 4px solid #38bdf8;
+
+            padding: 16px 18px;
+
+            border-radius: 8px;
+
+            margin-bottom: 25px;
+
+            color: #cbd5e1;
+        }
+
+        .status strong {
+            display: block;
+
+            color: #38bdf8;
+
+            margin-bottom: 3px;
+        }
+
+
+        /* =========================
+           START BUTTON
+        ========================= */
+
+        .automation-button {
+            width: 100%;
+        }
+
+        .automation-button button {
+            width: 100%;
+
+            padding: 15px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: #38bdf8;
+
+            color: #0f172a;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        .automation-button button:hover {
+            background: #7dd3fc;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           RESULT
+        ========================= */
+
+        .result {
+            background: #111827;
+
+            border: 1px solid #1f2937;
+
+            border-radius: 14px;
+
+            padding: 30px;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .result h2 {
+            color: white;
+
+            font-size: 24px;
+
+            margin-bottom: 15px;
+        }
+
+        .result-box {
+            background: #0f172a;
+
+            border: 1px solid #1f2937;
+
+            padding: 22px;
+
+            border-radius: 10px;
+
+            color: #94a3b8;
+        }
+
+        .result-box h3 {
+            color: white;
+
+            margin-bottom: 8px;
+        }
+
+        .result-box p {
+            color: #94a3b8;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+
+            padding: 30px 20px;
+
+            color: #475569;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            header {
+                padding: 18px 20px;
+            }
+
+            header h1 {
+                font-size: 21px;
+            }
+
+            .header-right {
+                gap: 10px;
+            }
+
+            .dashboard-badge {
+                display: none;
+            }
+
+            .container {
+                margin-top: 25px;
+            }
+
+            .welcome,
+            .automation,
+            .result {
+                padding: 22px;
+            }
+
+            .welcome h2 {
+                font-size: 24px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header>
+
+        <h1>
+            FakerX Automation
+        </h1>
+
+        <div class="header-right">
+
+            <span class="dashboard-badge">
+                PRIVATE DASHBOARD
+            </span>
+
+            <a
+                class="logout"
+                href="{{ url_for('main.logout') }}"
+            >
+                Logout
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main class="container">
+
+
+        <!-- WELCOME -->
+
+        <section class="welcome">
+
+            <h2>
+                Automation Dashboard
+            </h2>
+
+            <p>
+                Welcome to your private FakerX Automation dashboard.
+                From here you can access and run the Selenium
+                automation system.
+            </p>
+
+        </section>
+
+
+        <!-- AUTOMATION -->
+
+        <section class="automation">
+
+            <h2>
+                Selenium Web Automation
+            </h2>
+
+            <p>
+                This automation uses Python and Selenium to
+                automatically interact with a demo web application
+                and perform a predefined workflow.
+            </p>
+
+
+            <!-- WORKFLOW -->
+
+            <div class="workflow">
+
+                <h3>
+                    Automation Workflow
+                </h3>
+
+                <ol>
+
+                    <li>Open the target website</li>
+
+                    <li>Search for a product</li>
+
+                    <li>Find the required product</li>
+
+                    <li>Open the product page</li>
+
+                    <li>Read product information</li>
+
+                    <li>Add the product to the cart</li>
+
+                    <li>Open the cart</li>
+
+                    <li>Continue to checkout</li>
+
+                    <li>Fill customer information</li>
+
+                    <li>Fill demo payment fields</li>
+
+                    <li>Reach the final payment stage</li>
+
+                </ol>
+
+            </div>
+
+
+            <!-- STATUS -->
+
+            <div class="status">
+
+                <strong>
+                    Automation Status
+                </strong>
+
+                Ready to run.
+
+            </div>
+
+
+            <!-- START BUTTON -->
+
+            <form
+                class="automation-button"
+                method="POST"
+                action="{{ url_for('main.run_selenium') }}"
+            >
+
+                <button type="submit">
+                    Start Automation
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- RESULT -->
+
+        <section class="result">
+
+            <h2>
+                Automation Result
+            </h2>
+
+            <div class="result-box">
+
+                {% if result %}
+
+                    {% if result.status == "success" %}
+
+                        <h3>
+                            Automation Completed
+                        </h3>
+
+                        <p>
+                            Automation worked correctly.
+                        </p>
+
+                    {% else %}
+
+                        <h3>
+                            Automation Failed
+                        </h3>
+
+                        <p>
+                            Error: {{ result.error }}
+                        </p>
+
+                    {% endif %}
+
+                {% else %}
+
+                    <h3>
+                        No Result Yet
+                    </h3>
+
+                    <p>
+                        No automation has been executed yet.
+                    </p>
+
+                {% endif %}
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        FakerX Automation — Python Automation Portfolio Project
+
+    </footer>
+
+
+</body>
+
+</html>

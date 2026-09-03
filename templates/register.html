@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FakerX Automation</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: #e5e7eb;
+            line-height: 1.7;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1050px;
+            margin: auto;
+        }
+
+        /* HEADER */
+
+        header {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        header h1 {
+            font-size: 48px;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        header p {
+            color: #94a3b8;
+            font-size: 18px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #1e293b;
+            color: #38bdf8;
+            padding: 7px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin-bottom: 20px;
+            border: 1px solid #334155;
+        }
+
+        /* SECTIONS */
+
+        section {
+            background: #111827;
+            border: 1px solid #1f2937;
+            border-radius: 14px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        section h2 {
+            color: white;
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        section h2::after {
+            content: "";
+            display: block;
+            width: 45px;
+            height: 3px;
+            background: #38bdf8;
+            margin-top: 8px;
+            border-radius: 5px;
+        }
+
+        section p {
+            color: #cbd5e1;
+            margin-bottom: 15px;
+        }
+
+        /* TECHNOLOGIES */
+
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .tech-list li {
+            background: #1e293b;
+            border: 1px solid #334155;
+            color: #38bdf8;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        /* AUTOMATION STEPS */
+
+        ol {
+            padding-left: 25px;
+            margin-top: 15px;
+        }
+
+        ol li {
+            color: #cbd5e1;
+            margin-bottom: 8px;
+        }
+
+        .note {
+            background: #1e293b;
+            border-left: 4px solid #38bdf8;
+            padding: 15px 18px;
+            margin-top: 20px;
+            border-radius: 6px;
+            color: #cbd5e1;
+        }
+
+        /* LOGIN BUTTON */
+
+        .login-section {
+            text-align: center;
+        }
+
+        .login-section p {
+            max-width: 700px;
+            margin: 0 auto 15px;
+        }
+
+        .login-button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 13px 28px;
+            background: #38bdf8;
+            color: #0f172a;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: 0.2s;
+        }
+
+        .login-button:hover {
+            background: #7dd3fc;
+            transform: translateY(-2px);
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            padding: 30px 10px;
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            body {
+                padding: 20px 12px;
+            }
+
+            header {
+                padding: 35px 10px;
+            }
+
+            header h1 {
+                font-size: 36px;
+            }
+
+            header p {
+                font-size: 16px;
+            }
+
+            section {
+                padding: 22px;
+            }
+
+            section h2 {
+                font-size: 22px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <div class="container">
+
+
+        <!-- PROJECT HEADER -->
+
+        <header>
+
+            <span class="badge">
+                Python Automation Portfolio Project
+            </span>
+
+            <h1>FakerX Automation</h1>
+
+            <p>
+                A Python-based web automation system built with
+                Flask and Selenium.
+            </p>
+
+        </header>
+
+
+        <!-- ABOUT THE PROJECT -->
+
+        <section>
+
+            <h2>About This Project</h2>
+
+            <p>
+                FakerX Automation is a web-based automation system
+                designed to demonstrate practical Python automation,
+                web development, and authentication concepts.
+            </p>
+
+            <p>
+                The project provides a public portfolio-style page
+                where visitors can learn about the project and a
+                private dashboard where authenticated users can
+                access the automation system.
+            </p>
+
+        </section>
+
+
+        <!-- ABOUT MR FAKER -->
+
+        <section>
+
+            <h2>About Mr Faker</h2>
+
+            <p>
+                I am a Python Automation and Cyber Security learner
+                focused on building practical projects instead of
+                learning only through theory.
+            </p>
+
+            <p>
+                This project is part of my journey to combine
+                Python automation with web development using Flask.
+            </p>
+
+        </section>
+
+
+        <!-- TECHNOLOGIES -->
+
+        <section>
+
+            <h2>Technologies Used</h2>
+
+            <ul class="tech-list">
+
+                <li>Python</li>
+                <li>Flask</li>
+                <li>SQLAlchemy</li>
+                <li>SQLite</li>
+                <li>Selenium</li>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>Werkzeug Password Hashing</li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- AUTOMATION -->
+
+        <section>
+
+            <h2>What Does the Automation Do?</h2>
+
+            <p>
+                The automation system uses Selenium to interact
+                with a demo web application automatically.
+            </p>
+
+            <ol>
+
+                <li>Open the target website</li>
+
+                <li>Search for a product</li>
+
+                <li>Find the required product</li>
+
+                <li>Open the product page</li>
+
+                <li>Read product information</li>
+
+                <li>Add the product to the cart</li>
+
+                <li>Open the cart</li>
+
+                <li>Continue to checkout</li>
+
+                <li>Fill customer information</li>
+
+                <li>Fill demo payment fields</li>
+
+                <li>Reach the final payment stage</li>
+
+            </ol>
+
+            <div class="note">
+
+                Actual payment authorization is intentionally
+                not performed. The automation is designed for
+                demonstration and testing purposes.
+
+            </div>
+
+        </section>
+
+
+        <!-- HOW THE SYSTEM WORKS -->
+
+        <section>
+
+            <h2>How Does the System Work?</h2>
+
+            <p>
+                The system uses authentication to separate the
+                public project information from the private
+                automation dashboard.
+            </p>
+
+            <ol>
+
+                <li>Register an account</li>
+
+                <li>Login with your account</li>
+
+                <li>Access the private dashboard</li>
+
+                <li>Start the Selenium automation</li>
+
+                <li>View the automation result</li>
+
+            </ol>
+
+        </section>
+
+
+        <!-- LOGIN -->
+
+        <section class="login-section">
+
+            <h2>Want to Use the Automation?</h2>
+
+            <p>
+                The project information above is publicly available
+                so visitors can understand how FakerX Automation works.
+            </p>
+
+            <p>
+                If you want to use the automation system, login
+                to your account to access the private dashboard.
+            </p>
+
+            <a
+                class="login-button"
+                href="{{ url_for('main.login') }}"
+            >
+                Login to Use Automation
+            </a>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            FakerX Automation — Python Automation Portfolio Project
+
+        </footer>
+
+
+    </div>
+
+</body>
+
+</html>
